@@ -1,3 +1,5 @@
+// run the app @ terminal with npm run dev
+
 import React from "react";
 import { createRoot } from "react-dom/client";
 
