@@ -1,3 +1,6 @@
+import React from "react";
+import { createRoot } from "react-dom/client";
+
 const Pet = (properties) => {
   return React.createElement("div", {}, [
     React.createElement("h1", {}, properties.name),
@@ -26,6 +29,7 @@ const App = () => {
     }),
   ]);
 };
+
 const container = document.getElementById("root"); // get div
-const root = ReactDOM.createRoot(container); // create root for div
+const root = createRoot(container); // create root for div
 root.render(React.createElement(App)); // render app component in div
