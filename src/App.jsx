@@ -15,5 +15,3 @@ const App = () => {
 const container = document.getElementById("root"); // get div
 const root = createRoot(container); // create root for div
 root.render(< App />); // render app component in div
-
-// run the app @ terminal with npm run dev
