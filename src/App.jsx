@@ -12,6 +12,6 @@ const App = () => {
   )
 };
 
-const container = document.getElementById("root"); // get div
-const root = createRoot(container); // create root for div
-root.render(< App />); // render app component in div
+const container = document.getElementById("root"); // 1. get div
+const root = createRoot(container); // 2. create root for div
+root.render(< App />); // 3. render app component in div
