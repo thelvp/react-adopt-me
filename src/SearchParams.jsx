@@ -26,7 +26,7 @@ const SearchParams = () => {
     <div className="search-params">
       <form
         onSubmit={(event) => {
-          e.preventDefault();
+          event.preventDefault();
           requestPets();
         }}
       >
