@@ -20,6 +20,8 @@ export default SearchParams;
 
 // - The useState is a Hook.
 // - All hooks start with "use".
-// - This hook with const [location, setLocation] makes us able to change the location variable to whatever is typed int he form
 // - SYNTAX: const [{variable}, set {variable} ] = useState("default");
-// - ... & then call it in the form input field with onChange={event => set{variable}(event.target.value)}
+// - 1. [ location ] sets the current value of the state
+// - 2. [ setLocation ] sets the function to update the state
+// - 3. = useState("") sets the default value of the state
+// - 4. onChange calls the method setLocation with as input, the value of the form input field (e.g. "Amsterdam")
