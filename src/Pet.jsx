@@ -9,3 +9,9 @@ const Pet = (props) => {
 }
 
 export default Pet;
+
+// Use of props to use properties of instances
+// In app you would specify in <div> <AppName prop="" />:
+// - <Pet name="Tommy" animal="Cat" breed="Tuxedo cat" />
+// - <Pet name="Bobby" animal="Dog" breed="Dachshund" />
+// - <Pet name="Sara" animal="Guinea pig" breed="Shorthair" />
