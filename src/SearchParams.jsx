@@ -1,15 +1,33 @@
 import { useState } from 'react';
 
+const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
+
+
 const SearchParams = () => {
-  const [ location, setLocation ] = useState("");
+  const [location, setLocation] = useState("");
+  const [animal, setAnimal] = useState("");
 
   return (
     <div className="search-params">
       <form action="">
-        <label htmlFor="location">
-          Location
-          <input onChange={event => setLocation(event.target.value)} type="text" id="location" value={location} placeholder="Location"/>
-        </label>
+        <label htmlFor="location"> Location </label>
+        <input
+          type="text"
+          id="location"
+          value={location}
+          onChange={event => { setLocation(event.target.value) }}
+          placeholder=""
+        />
+        <label htmlFor="animal"> Animal </label>
+        <select
+          id="animal"
+          value={animal}
+          onChange={event => { setAnimal(event.target.value) }} >
+          <option />
+          {ANIMALS.map(animal => (
+            <option key={animal}> {animal} </option>
+          ))}
+        </select>
         <button>Submit</button>
       </form>
     </div>
