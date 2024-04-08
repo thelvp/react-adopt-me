@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // to prevent unnecessary loading
 
 const Pet = ({ name, animal, breed, images, location, id }) => {
   let hero = "http://pets-images.dev-apis.com/pets/none.jpg";
