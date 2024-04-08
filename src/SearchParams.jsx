@@ -1,16 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Pet from './Pet'
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
-const breeds = [];
 
 const SearchParams = () => {
   const [location, setLocation] = useState("");
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
+  const breeds = [];
+  const [pets, setPets] = useState([]);
+
+  useEffect(() => {
+    requestPets();
+  }, []);
+
+  async function requestPets() {
+    const res = await fetch(
+      `http://pets-v2.dev-apis.com/pets?animal=${animal}&location=${location}&breed=${breed}`
+    );
+    const json = await res.json();
+    setPets(json.pets);
+  }
 
   return (
     <div className="search-params">
-      <form action="">
+      <form
+        onSubmit={(event) => {
+          e.preventDefault();
+          requestPets();
+        }}
+      >
         <label htmlFor="location"> Location </label>
         <input
           type="text"
@@ -27,10 +46,6 @@ const SearchParams = () => {
             setAnimal(event.target.value)
             setBreed("")
           }}
-          onBlur={(event) => {
-            setAnimal(event.target.value);
-            setBreed("");
-          }}
         >
           <option />
           {ANIMALS.map(animal => (
@@ -45,18 +60,24 @@ const SearchParams = () => {
           onChange={event => { setBreed(event.target.value) }}
         >
           <option />
-          {breeds.map(breed => (
-            <option key={breed}> {breed} </option>
+          {breeds.map((breed) => (
+            <option key={breed} value={breed}> {breed} </option>
           ))}
         </select>
         <button>Submit</button>
       </form>
+      {
+        pets.map((pet) => (
+          <Pet name={pet.name} animal={pet.animal} breed={pet.breed} key={pet.id} />
+        ))
+      }
     </div>
   )
 }
 
 export default SearchParams;
 
+// HOOKS
 // - The useState is a Hook.
 // - All hooks start with "use".
 // - SYNTAX: const [{variable}, set {variable} ] = useState("default");
@@ -64,3 +85,6 @@ export default SearchParams;
 // - 2. [ setLocation ] sets the function to update the state
 // - 3. = useState("") sets the default value of the state
 // - 4. onChange calls the method setLocation with as input, the value of the form input field (e.g. "Amsterdam")
+
+// SETEFFECT
+// - Use for API calls / data loading/saving outside of component
