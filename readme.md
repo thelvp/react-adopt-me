@@ -1,6 +1,9 @@
-<h3>Credits</h1>
+## Credits
 App developed following the course "Complete Intro to React v8
 and Intermediate React v5" by Brian Holt: https://react-v8.holt.courses/.
 
-<h3>Running the app</h3>
-Run the app with `npm run dev`.
+## Running the app
+Run the app with `npm run dev` (after npm install).
+
+## Notice
+Please note this project is still a work in progress.
